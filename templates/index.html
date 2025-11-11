@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinWise – Smart invest to your future</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      color: black;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 30px;
+    }
+
+    .finwise-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease-in-out;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .logo {
+      width: 160px;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    /* 📱 Responsive for Mobile */
+    @media (max-width: 768px) {
+      .logo {
+        width: 120px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      .card, .finwise-section {
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 100px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Investment Plan Section -->
+  <div class="card p-4 shadow-lg">
+    <form action="/result" method="POST">
+      <div class="mb-3">
+        <label class="form-label">Investment Amount (₹)</label>
+        <input type="number" class="form-control" name="amount" placeholder="Enter amount" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Duration (in years)</label>
+        <input type="number" class="form-control" name="years" placeholder="e.g. 2" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Risk Level</label>
+        <select class="form-select" name="risk">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Get Investment Plan</button>
+    </form>
+  </div>
+
+  <!-- FinWise Section -->
+  <div class="finwise-section">
+    <img src="{{ url_for('static', filename='FWlogo.jpeg') }}" alt="FinWise Logo" class="logo">
+    <h1>FinWise</h1>
+    <p>Smart invest to your future</p>
+  </div>
+
+</body>
+</html>
